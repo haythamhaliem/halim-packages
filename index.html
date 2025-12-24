@@ -2,94 +2,146 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Halim Wedding – Packages</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halim Wedding – Packages</title>
 
 <style>
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 body{
-  font-family: "Georgia", serif;
   background:#000;
   color:#fff;
+  font-family: "Times New Roman", serif;
 }
 
 /* ===== NAV ===== */
-nav{
+.nav{
   display:flex;
   justify-content:center;
-  gap:20px;
-  padding:25px;
+  gap:15px;
+  padding:30px 20px;
   border-bottom:1px solid #222;
   flex-wrap:wrap;
 }
 
-nav a{
+.nav a{
   color:#aaa;
   text-decoration:none;
-  padding:10px 18px;
   border:1px solid #222;
+  padding:10px 20px;
   letter-spacing:2px;
-  font-size:14px;
+  font-size:13px;
 }
 
-nav a:hover{
+.nav a.active,
+.nav a:hover{
   color:#fff;
   border-color:#fff;
 }
 
-/* ===== HERO ===== */
-.hero{
-  position:relative;
-  text-align:center;
-}
-
-.hero img{
-  width:100%;
-  max-height:600px;
-  object-fit:cover;
-  filter:brightness(0.6);
-}
-
-.hero-text{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-}
-
-.hero-text h1{
-  font-size:48px;
-  letter-spacing:6px;
-  border:2px solid #fff;
-  padding:15px 30px;
-}
-
-.hero-text p{
-  margin-top:15px;
-  font-size:18px;
-}
-
-/* ===== SECTION ===== */
-.section{
-  background:#f5f1ec;
-  color:#000;
-  padding:60px 8%;
-}
-
+/* ===== TITLE ===== */
 .section-title{
   text-align:center;
-  font-size:42px;
-  letter-spacing:4px;
-  margin-bottom:50px;
+  padding:80px 20px 60px;
 }
 
-/* ===== PACKAGE ===== */
-.package{
+.section-title h1{
+  font-size:42px;
+  letter-spacing:4px;
+}
+
+/* ===== CARDS ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  padding:0 60px 100px;
+}
+
+.card{
+  border:1px solid #333;
+  padding:50px 30px;
+  text-align:center;
+  background:linear-gradient(145deg,#0a0a0a,#000);
+}
+
+.card.featured{
+  border-color:#fff;
+}
+
+.card h3{
+  letter-spacing:2px;
+  margin-bottom:20px;
+}
+
+.price{
+  font-size:34px;
+  margin-bottom:25px;
+}
+
+.card p{
+  font-size:14px;
+  color:#ccc;
+  line-height:2;
+}
+
+.book{
+  display:inline-block;
+  margin-top:35px;
+  padding:12px 30px;
+  border:1px solid #fff;
+  color:#fff;
+  text-decoration:none;
+  letter-spacing:2px;
+  font-size:13px;
+}
+
+/* ===== IMAGE SECTIONS ===== */
+.banner{
+  margin-top:120px;
+  position:relative;
+}
+
+.banner img{
+  width:100%;
+  display:block;
+  opacity:0.85;
+}
+
+.banner .overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.banner h2{
+  border:1px solid #fff;
+  padding:15px 40px;
+  letter-spacing:6px;
+}
+
+.banner span{
+  margin-top:20px;
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+/* ===== DETAILS ===== */
+.details{
+  background:#f5f1ea;
+  color:#000;
+  padding:80px 60px;
+}
+
+.detail{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
@@ -97,46 +149,41 @@ nav a:hover{
   align-items:center;
 }
 
-.package img{
+.detail img{
   width:100%;
-  border-radius:4px;
 }
 
-.package h2{
-  font-size:32px;
-  margin-bottom:15px;
-}
-
-.package ul{
-  list-style:disc;
-  margin-left:20px;
+.detail h3{
+  font-size:28px;
   margin-bottom:20px;
 }
 
-.price{
+.detail ul{
+  line-height:2;
+  font-size:15px;
+}
+
+.detail .price{
+  margin-top:20px;
   display:inline-block;
   background:#000;
   color:#fff;
   padding:10px 25px;
-  font-size:20px;
-  border-radius:30px;
 }
 
-/* ===== FOOTER NOTE ===== */
 .note{
   text-align:center;
+  color:#a00;
   margin-top:40px;
-  color:#b00;
-  font-size:16px;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  .package{
+  .detail{
     grid-template-columns:1fr;
   }
-  .hero-text h1{
-    font-size:32px;
+  .cards{
+    padding:0 20px 80px;
   }
 }
 </style>
@@ -145,71 +192,92 @@ nav a:hover{
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#combo">COMBO PACKAGE</a>
+<div class="nav">
+  <a class="active" href="#">COMBO PACKAGE</a>
   <a href="#video">VIDEOGRAPHY</a>
   <a href="#photo">PHOTOGRAPHY</a>
   <a href="#media">MEDIA COVERAGE</a>
   <a href="#full">FULL RECORD</a>
-</nav>
+</div>
 
 <!-- COMBO -->
-<section id="combo">
-  <div class="hero">
-    <img src="images/1.jpg">
-    <div class="hero-text">
-      <h1>COMBO PACKAGE</h1>
-      <p>Contact us: +201550999550</p>
-    </div>
+<div class="section-title">
+  <h1>COMBO PACKAGE</h1>
+</div>
+
+<div class="cards">
+  <div class="card featured">
+    <h3>PACKAGE 1</h3>
+    <div class="price">16000 L.E</div>
+    <p>
+      12 hours with 2 photographers<br>
+      Promo 5–7 minutes<br>
+      Instagram Reel<br>
+      Media coverage by mobile<br>
+      Online gallery & download
+    </p>
+    <a class="book" href="#">BOOK</a>
   </div>
 
-  <div class="section">
-    <div class="package">
-      <div>
-        <h2>PACKAGE 1</h2>
-        <ul>
-          <li>12 hours with 2 photographers</li>
-          <li>Promo 5–7 minutes</li>
-          <li>Instagram Reel</li>
-          <li>Media coverage by mobile</li>
-          <li>Editing all photos</li>
-          <li>Online gallery & download</li>
-        </ul>
-        <span class="price">16000 L.E</span>
-      </div>
-      <img src="images/2.jpg">
-    </div>
-
-    <div class="package">
-      <img src="images/3.jpg">
-      <div>
-        <h2>PACKAGE 2</h2>
-        <ul>
-          <li>12 hours with 2 photographers</li>
-          <li>Promo 5–7 minutes</li>
-          <li>Instagram Reel</li>
-          <li>Editing all photos</li>
-          <li>Online gallery & download</li>
-        </ul>
-        <span class="price">14000 L.E</span>
-      </div>
-    </div>
-
-    <div class="package">
-      <div>
-        <h2>PACKAGE 3</h2>
-        <ul>
-          <li>12 hours with 2 photographers</li>
-          <li>Media coverage by mobile</li>
-          <li>Editing all photos</li>
-          <li>Online gallery & download</li>
-        </ul>
-        <span class="price">12000 L.E</span>
-      </div>
-      <img src="images/4.jpg">
-    </div>
+  <div class="card">
+    <h3>PACKAGE 2</h3>
+    <div class="price">14000 L.E</div>
+    <p>
+      12 hours with 2 photographers<br>
+      Promo 5–7 minutes<br>
+      Instagram Reel<br>
+      Online gallery & download
+    </p>
+    <a class="book" href="#">BOOK</a>
   </div>
-</section>
+
+  <div class="card">
+    <h3>PACKAGE 3</h3>
+    <div class="price">12000 L.E</div>
+    <p>
+      12 hours with 2 photographers<br>
+      Media coverage by mobile<br>
+      Online gallery & download
+    </p>
+    <a class="book" href="#">BOOK</a>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div id="video" class="banner">
+  <img src="images/1.jpg">
+  <div class="overlay">
+    <h2>VIDEOGRAPHY</h2>
+    <span>Contact us: +201550999550</span>
+  </div>
+</div>
+
+<!-- PHOTO -->
+<div id="photo" class="banner">
+  <img src="images/2.jpg">
+  <div class="overlay">
+    <h2>PHOTOGRAPHY</h2>
+    <span>Contact us: +201550999550</span>
+  </div>
+</div>
+
+<!-- MEDIA -->
+<div id="media" class="banner">
+  <img src="images/3.jpg">
+  <div class="overlay">
+    <h2>MEDIA COVERAGE</h2>
+    <span>Contact us: +201550999550</span>
+  </div>
+</div>
+
+<!-- FULL -->
+<div id="full" class="banner">
+  <img src="images/4.jpg">
+  <div class="overlay">
+    <h2>FULL RECORD</h2>
+    <span>Contact us: +201550999550</span>
+  </div>
+</div>
 
 </body>
 </html>
