@@ -1,181 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Halim Wedding – Packages</title>
+<meta charset="UTF-8">
+<title>Halim Wedding – Packages</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      margin:0;
-      background:#000;
-      color:#fff;
-      font-family: "Georgia", serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    /* Top Tabs */
-    .nav{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      padding:25px 15px;
-      border-bottom:1px solid #222;
-      flex-wrap:wrap;
-    }
+body{
+  font-family: "Georgia", serif;
+  background:#000;
+  color:#fff;
+}
 
-    .nav button{
-      background:transparent;
-      border:1px solid #333;
-      color:#aaa;
-      padding:10px 18px;
-      letter-spacing:2px;
-      cursor:pointer;
-      transition:.3s;
-    }
+/* ===== NAV ===== */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:25px;
+  border-bottom:1px solid #222;
+  flex-wrap:wrap;
+}
 
-    .nav button.active,
-    .nav button:hover{
-      color:#fff;
-      border-color:#fff;
-    }
+nav a{
+  color:#aaa;
+  text-decoration:none;
+  padding:10px 18px;
+  border:1px solid #222;
+  letter-spacing:2px;
+  font-size:14px;
+}
 
-    /* Section */
-    .section{
-      display:none;
-      padding:70px 20px;
-      max-width:1200px;
-      margin:auto;
-    }
+nav a:hover{
+  color:#fff;
+  border-color:#fff;
+}
 
-    .section.active{
-      display:block;
-    }
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  text-align:center;
+}
 
-    h1{
-      text-align:center;
-      letter-spacing:6px;
-      margin-bottom:60px;
-      font-size:42px;
-    }
+.hero img{
+  width:100%;
+  max-height:600px;
+  object-fit:cover;
+  filter:brightness(0.6);
+}
 
-    /* Packages */
-    .packages{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
+.hero-text{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
 
-    .card{
-      border:1px solid #222;
-      padding:40px 30px;
-      text-align:center;
-      background:linear-gradient(180deg,#111,#000);
-    }
+.hero-text h1{
+  font-size:48px;
+  letter-spacing:6px;
+  border:2px solid #fff;
+  padding:15px 30px;
+}
 
-    .card.featured{
-      border-color:#fff;
-    }
+.hero-text p{
+  margin-top:15px;
+  font-size:18px;
+}
 
-    .price{
-      font-size:34px;
-      margin:20px 0;
-    }
+/* ===== SECTION ===== */
+.section{
+  background:#f5f1ec;
+  color:#000;
+  padding:60px 8%;
+}
 
-    ul{
-      list-style:none;
-      padding:0;
-      color:#ccc;
-      line-height:1.9;
-      font-family: Arial, sans-serif;
-      font-size:14px;
-    }
+.section-title{
+  text-align:center;
+  font-size:42px;
+  letter-spacing:4px;
+  margin-bottom:50px;
+}
 
-    .btn{
-      margin-top:25px;
-      display:inline-block;
-      padding:12px 30px;
-      border:1px solid #fff;
-      color:#fff;
-      text-decoration:none;
-      letter-spacing:2px;
-    }
+/* ===== PACKAGE ===== */
+.package{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin-bottom:80px;
+  align-items:center;
+}
 
-    .btn:hover{
-      background:#fff;
-      color:#000;
-    }
-  </style>
+.package img{
+  width:100%;
+  border-radius:4px;
+}
+
+.package h2{
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+.package ul{
+  list-style:disc;
+  margin-left:20px;
+  margin-bottom:20px;
+}
+
+.price{
+  display:inline-block;
+  background:#000;
+  color:#fff;
+  padding:10px 25px;
+  font-size:20px;
+  border-radius:30px;
+}
+
+/* ===== FOOTER NOTE ===== */
+.note{
+  text-align:center;
+  margin-top:40px;
+  color:#b00;
+  font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .package{
+    grid-template-columns:1fr;
+  }
+  .hero-text h1{
+    font-size:32px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Tabs -->
-  <div class="nav">
-    <button class="active" onclick="showTab('combo')">COMBO PACKAGE</button>
-    <button onclick="showTab('video')">VIDEOGRAPHY</button>
-    <button onclick="showTab('photo')">PHOTOGRAPHY</button>
-    <button onclick="showTab('media')">MEDIA COVERAGE</button>
-    <button onclick="showTab('full')">FULL RECORD</button>
-  </div>
+<!-- NAV -->
+<nav>
+  <a href="#combo">COMBO PACKAGE</a>
+  <a href="#video">VIDEOGRAPHY</a>
+  <a href="#photo">PHOTOGRAPHY</a>
+  <a href="#media">MEDIA COVERAGE</a>
+  <a href="#full">FULL RECORD</a>
+</nav>
 
-  <!-- COMBO -->
-  <div id="combo" class="section active">
-    <h1>COMBO PACKAGE</h1>
-    <div class="packages">
-
-      <div class="card featured">
-        <h3>PACKAGE 1</h3>
-        <div class="price">16000 L.E</div>
-        <ul>
-          <li>12 hours with 2 photographers</li>
-          <li>Promo 5–7 minutes</li>
-          <li>Instagram Reel</li>
-          <li>Media coverage by mobile</li>
-          <li>Online gallery & download</li>
-        </ul>
-        <a class="btn" href="https://wa.me/201550999550">BOOK</a>
-      </div>
-
-      <div class="card">
-        <h3>PACKAGE 2</h3>
-        <div class="price">14000 L.E</div>
-        <ul>
-          <li>12 hours with 2 photographers</li>
-          <li>Promo 5–7 minutes</li>
-          <li>Instagram Reel</li>
-          <li>Online gallery & download</li>
-        </ul>
-        <a class="btn" href="https://wa.me/201550999550">BOOK</a>
-      </div>
-
-      <div class="card">
-        <h3>PACKAGE 3</h3>
-        <div class="price">12000 L.E</div>
-        <ul>
-          <li>12 hours with 2 photographers</li>
-          <li>Media coverage by mobile</li>
-          <li>Online gallery & download</li>
-        </ul>
-        <a class="btn" href="https://wa.me/201550999550">BOOK</a>
-      </div>
-
+<!-- COMBO -->
+<section id="combo">
+  <div class="hero">
+    <img src="images/1.jpg">
+    <div class="hero-text">
+      <h1>COMBO PACKAGE</h1>
+      <p>Contact us: +201550999550</p>
     </div>
   </div>
 
-  <!-- باقي الأقسام placeholder -->
-  <div id="video" class="section"><h1>VIDEOGRAPHY</h1></div>
-  <div id="photo" class="section"><h1>PHOTOGRAPHY</h1></div>
-  <div id="media" class="section"><h1>MEDIA COVERAGE</h1></div>
-  <div id="full" class="section"><h1>FULL RECORD</h1></div>
+  <div class="section">
+    <div class="package">
+      <div>
+        <h2>PACKAGE 1</h2>
+        <ul>
+          <li>12 hours with 2 photographers</li>
+          <li>Promo 5–7 minutes</li>
+          <li>Instagram Reel</li>
+          <li>Media coverage by mobile</li>
+          <li>Editing all photos</li>
+          <li>Online gallery & download</li>
+        </ul>
+        <span class="price">16000 L.E</span>
+      </div>
+      <img src="images/2.jpg">
+    </div>
 
-  <script>
-    function showTab(id){
-      document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-      document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      event.target.classList.add('active');
-    }
-  </script>
+    <div class="package">
+      <img src="images/3.jpg">
+      <div>
+        <h2>PACKAGE 2</h2>
+        <ul>
+          <li>12 hours with 2 photographers</li>
+          <li>Promo 5–7 minutes</li>
+          <li>Instagram Reel</li>
+          <li>Editing all photos</li>
+          <li>Online gallery & download</li>
+        </ul>
+        <span class="price">14000 L.E</span>
+      </div>
+    </div>
+
+    <div class="package">
+      <div>
+        <h2>PACKAGE 3</h2>
+        <ul>
+          <li>12 hours with 2 photographers</li>
+          <li>Media coverage by mobile</li>
+          <li>Editing all photos</li>
+          <li>Online gallery & download</li>
+        </ul>
+        <span class="price">12000 L.E</span>
+      </div>
+      <img src="images/4.jpg">
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
