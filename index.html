@@ -1,116 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Halim Wedding – Packages</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halim Wedding – Packages</title>
 
-<style>
-body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family: Arial, sans-serif;
-}
+  <style>
+    body{
+      margin:0;
+      background:#000;
+      color:#fff;
+      font-family: "Georgia", serif;
+    }
 
-/* Top Menu */
-.nav{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  padding:30px 15px;
-  border-bottom:1px solid #222;
-  flex-wrap:wrap;
-}
+    /* Top Tabs */
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      padding:25px 15px;
+      border-bottom:1px solid #222;
+      flex-wrap:wrap;
+    }
 
-.nav span{
-  color:#777;
-  padding:10px 20px;
-  border:1px solid #222;
-  letter-spacing:2px;
-  font-size:14px;
-}
+    .nav button{
+      background:transparent;
+      border:1px solid #333;
+      color:#aaa;
+      padding:10px 18px;
+      letter-spacing:2px;
+      cursor:pointer;
+      transition:.3s;
+    }
 
-/* Title */
-.title{
-  text-align:center;
-  margin:80px 0 60px;
-}
+    .nav button.active,
+    .nav button:hover{
+      color:#fff;
+      border-color:#fff;
+    }
 
-.title small{
-  letter-spacing:4px;
-  color:#777;
-}
+    /* Section */
+    .section{
+      display:none;
+      padding:70px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
 
-.title h1{
-  font-size:42px;
-  margin:15px 0;
-}
+    .section.active{
+      display:block;
+    }
 
-/* Cards */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-  max-width:900px;
-  margin:auto;
-  padding:0 20px 120px;
-}
+    h1{
+      text-align:center;
+      letter-spacing:6px;
+      margin-bottom:60px;
+      font-size:42px;
+    }
 
-.card{
-  background:#111;
-  padding:40px 20px;
-  text-align:center;
-  border:1px solid #222;
-}
+    /* Packages */
+    .packages{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
 
-.card.featured{
-  border:1px solid #fff;
-}
+    .card{
+      border:1px solid #222;
+      padding:40px 30px;
+      text-align:center;
+      background:linear-gradient(180deg,#111,#000);
+    }
 
-.card h3{
-  letter-spacing:2px;
-  margin-bottom:15px;
-}
+    .card.featured{
+      border-color:#fff;
+    }
 
-.card .price{
-  font-size:30px;
-  letter-spacing:2px;
-}
-</style>
+    .price{
+      font-size:34px;
+      margin:20px 0;
+    }
+
+    ul{
+      list-style:none;
+      padding:0;
+      color:#ccc;
+      line-height:1.9;
+      font-family: Arial, sans-serif;
+      font-size:14px;
+    }
+
+    .btn{
+      margin-top:25px;
+      display:inline-block;
+      padding:12px 30px;
+      border:1px solid #fff;
+      color:#fff;
+      text-decoration:none;
+      letter-spacing:2px;
+    }
+
+    .btn:hover{
+      background:#fff;
+      color:#000;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="nav">
-  <span>COMBO PACKAGE</span>
-  <span>VIDEOGRAPHY</span>
-  <span>PHOTOGRAPHY</span>
-  <span>MEDIA COVERAGE</span>
-  <span>FULL RECORD</span>
-</div>
-
-<div class="title">
-  <small>COLLECTION DETAIL</small>
-  <h1>COMBO PACKAGE</h1>
-</div>
-
-<div class="cards">
-  <div class="card featured">
-    <h3>PACKAGE 1</h3>
-    <div class="price">16000 L.E</div>
+  <!-- Tabs -->
+  <div class="nav">
+    <button class="active" onclick="showTab('combo')">COMBO PACKAGE</button>
+    <button onclick="showTab('video')">VIDEOGRAPHY</button>
+    <button onclick="showTab('photo')">PHOTOGRAPHY</button>
+    <button onclick="showTab('media')">MEDIA COVERAGE</button>
+    <button onclick="showTab('full')">FULL RECORD</button>
   </div>
 
-  <div class="card">
-    <h3>PACKAGE 2</h3>
-    <div class="price">14000 L.E</div>
+  <!-- COMBO -->
+  <div id="combo" class="section active">
+    <h1>COMBO PACKAGE</h1>
+    <div class="packages">
+
+      <div class="card featured">
+        <h3>PACKAGE 1</h3>
+        <div class="price">16000 L.E</div>
+        <ul>
+          <li>12 hours with 2 photographers</li>
+          <li>Promo 5–7 minutes</li>
+          <li>Instagram Reel</li>
+          <li>Media coverage by mobile</li>
+          <li>Online gallery & download</li>
+        </ul>
+        <a class="btn" href="https://wa.me/201550999550">BOOK</a>
+      </div>
+
+      <div class="card">
+        <h3>PACKAGE 2</h3>
+        <div class="price">14000 L.E</div>
+        <ul>
+          <li>12 hours with 2 photographers</li>
+          <li>Promo 5–7 minutes</li>
+          <li>Instagram Reel</li>
+          <li>Online gallery & download</li>
+        </ul>
+        <a class="btn" href="https://wa.me/201550999550">BOOK</a>
+      </div>
+
+      <div class="card">
+        <h3>PACKAGE 3</h3>
+        <div class="price">12000 L.E</div>
+        <ul>
+          <li>12 hours with 2 photographers</li>
+          <li>Media coverage by mobile</li>
+          <li>Online gallery & download</li>
+        </ul>
+        <a class="btn" href="https://wa.me/201550999550">BOOK</a>
+      </div>
+
+    </div>
   </div>
 
-  <div class="card">
-    <h3>PACKAGE 3</h3>
-    <div class="price">12000 L.E</div>
-  </div>
-</div>
+  <!-- باقي الأقسام placeholder -->
+  <div id="video" class="section"><h1>VIDEOGRAPHY</h1></div>
+  <div id="photo" class="section"><h1>PHOTOGRAPHY</h1></div>
+  <div id="media" class="section"><h1>MEDIA COVERAGE</h1></div>
+  <div id="full" class="section"><h1>FULL RECORD</h1></div>
+
+  <script>
+    function showTab(id){
+      document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+      document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
